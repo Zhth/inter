@@ -1,0 +1,14 @@
+{% extends "webinter/base.html" %}
+
+{% block content %}
+   <body>
+   {% for file in file_list %}
+   <li><a href="#">{{ file.name }}</a></li>
+   {% endfor %}
+   <form enctype="multipart/form-data" method="POST" action="{% url 'webinter:upload' %}"> {% csrf_token %}
+      <input type="file" name="file" />
+      <br /> 
+      <input type="submit" value="上传文件" /> 
+   </form>
+   </body> 
+{% endblock content %}

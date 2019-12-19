@@ -1,0 +1,14 @@
+{% extends "webinter/base.html" %}
+
+{% block content %}
+<table border="1">
+{% for line in lines %}
+  <tr>
+      {% for block in line%}
+      <td style="word-break:keep-all;white-space:nowrap; overflow:hidden;text-overflow:ellipsis;">{{ block }}</td>
+      {% endfor %}
+  </tr>
+{% endfor %}
+</table>
+<a href="{% url 'webinter:downloadresult' %}">Download your result</a>
+{% endblock content %}
